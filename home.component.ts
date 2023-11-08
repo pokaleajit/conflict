@@ -47,16 +47,7 @@ this.getData()
 })
 
   }
-  getData(){
-    this.empolyee.getData().subscribe((res)=>{
-      console.log(res);
-      this.empArray=res
-      this.empArray=this.empArray.sort((a:any,b:any)=>a.age-b.age)
-      console.log(this.empArray);
-      
-      
-    })
-  }
+
   getInfo(value:any){
     this.searchItem=true
     console.log(value);

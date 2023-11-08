@@ -34,9 +34,7 @@ export class AppComponent implements OnInit{
     this.getData()
     
   }
-  addEmp(){
-    this.view=true
-  }
+
 
 
   }

@@ -1,0 +1,72 @@
+<input type="string" #tabSearch>
+<button type="button" (click)="getInfo(tabSearch.value)">Search</button>
+<br><br>
+<button type="button" (click)="addEmp()">Add New Emp</button>
+<form *ngIf="view" [formGroup]="newEmp" (ngSubmit)="submitForm(newEmp)">
+  <div class="form-group">
+    <label for="id" >ID</label>
+ 
+  <input type="number" class="form-control" formControlName="id">
+  </div>
+  <div class="form-group">
+    <label for="Name" >Name</label>
+ 
+  <input type="string" class="form-control" formControlName="name">
+  </div>
+  <div class="form-group">
+    <label for="email" >Email</label>
+ 
+  <input type="email" class="form-control" formControlName="email">
+  </div>
+  <div class="form-group">
+    <label for="age" >Age</label>
+ 
+  <input type="number" class="form-control" formControlName="age">
+  </div>
+  <div class="form-group">
+    <label for="salary" >Salary</label>
+ 
+  <input type="number" class="form-control" formControlName="salary">
+  </div>
+  <button [disabled]="!newEmp.valid" type="submit">Add</button>
+</form>
+<table *ngIf="!searchItem">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Age</th>
+    <th>Salary</th>
+  </tr>
+  <tr *ngFor="let empData1 of empArray">
+    <!-- <td>hdjd</td> -->
+    <td>{{empData1.id}}</td>
+    <td>{{empData1.name}}</td>
+    <td>{{empData1.email}}</td>
+    <td>{{empData1.age}}</td>
+    <td>{{empData1.salary}}</td>
+
+  
+  </tr>
+
+</table>
+<table *ngIf="searchItem">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Age</th>
+    <th>Salary</th>
+  </tr>
+  <tr *ngFor="let empData1 of getEmpInfo">
+    <!-- <td>hdjd</td> -->
+    <td>{{empData1.id}}</td>
+    <td>{{empData1.name}}</td>
+    <td>{{empData1.email}}</td>
+    <td>{{empData1.age}}</td>
+    <td>{{empData1.salary}}</td>
+
+  
+  </tr>
+
+</table>
